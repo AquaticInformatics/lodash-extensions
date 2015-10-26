@@ -7,13 +7,16 @@
         uglify = require('gulp-uglify'),
         del = require('del'),
         rename = require('gulp-rename'),
-        browserify = require('gulp-browserify'),
+        concat = require('gulp-concat'),
+        browserify = require('browserify'),
+        source = require('vinyl-source-stream'),
         header = require('gulp-header'),
         notifierReporter = require('mocha-notifier-reporter'),
         fs = require('fs'),
         coverageEnforcer = require('gulp-istanbul-enforcer'),
         stopOnUnitTestFailure = false,
-        MAIN = 'source/lodashExtensions.js',
+        MAIN = './source/lodashExtensions.js',
+        LODASH_CONFIG = './configureLodash.js',
         SOURCE = 'source/*.js',
         TESTS = 'tests/*.js',
         DEST = './dist',
@@ -24,7 +27,7 @@
         UTF8 = 'utf8';
 
 
-    gulp.task('test', ['browserify', 'run-mocha']);
+    gulp.task('compile', ['browserify', 'run-mocha', 'configLodash']);
 
     gulp.task('run-mocha', function() {
         var reporters = ['html', 'text', 'text-summary', 'json'];
@@ -50,19 +53,22 @@
             });
     });
 
-    gulp.task('watch-test', function() {
+    gulp.task('watch', function() {
         stopOnUnitTestFailure = true;
         gulp.watch([SOURCE, TESTS], ['run-mocha']);
     });
 
+    gulp.task('configLodash', function() {
+        return gulp.src(LODASH_CONFIG)
+            .pipe(gulp.dest(DEST));
+    });
+
     gulp.task('browserify', function() {
-        return gulp.src(MAIN)
-            .pipe(browserify({
-                insertGlobals: true,
+        return browserify(MAIN, {
                 standalone: STANDALONE
-            }))
-            .pipe(header(fs.readFileSync(LICENSE, UTF8)))
-            .pipe(rename(SRC_COMPILED))
+            })
+            .bundle()
+            .pipe(source(SRC_COMPILED))
             .pipe(gulp.dest(DEST));
     });
 
@@ -73,8 +79,11 @@
         deleteDone();
     });
 
-    gulp.task('build', ['test', 'clean'], function() {
+    gulp.task('build', ['compile', 'clean'], function() {
+        var licenseInfo = fs.readFileSync(LICENSE, UTF8);
         return gulp.src(DEST + '/' + SRC_COMPILED)
+            .pipe(header(licenseInfo))
+            .pipe(gulp.dest(DEST))
             .pipe(uglify())
             .pipe(coverageEnforcer({
                 thresholds : {
@@ -86,7 +95,7 @@
                 coverageDirectory : 'coverage',
                 rootDirectory : '.'
             }))
-            .pipe(header(fs.readFileSync(LICENSE, UTF8)))
+            .pipe(header(licenseInfo))
             .pipe(rename(MIN_FILE))
             .pipe(gulp.dest(DEST));
     });

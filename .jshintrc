@@ -15,7 +15,7 @@
     "quotmark": "single",
     "undef": false,
     "unused": true,
-    "strict": true,
+    "strict": false,
     "sub": true,
     "expr": true,
     "globals": {
