@@ -1,7 +1,5 @@
-var isDefined = require('./isDefined');
-
 module.exports = function(value, defaultValue) {
-    if (isDefined(value) && value !== null) {
+    if (typeof value === 'number' && isFinite(value)) {
         return value;
     }
     return defaultValue;

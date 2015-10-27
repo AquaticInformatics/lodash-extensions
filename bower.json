@@ -1,0 +1,28 @@
+{
+  "name": "ai-lodash-extensions",
+  "version": "0.0.2",
+  "homepage": "https://github.com/AquaticInformatics/lodash-extensions",
+  "authors": [
+    "Simon Nodel <simon.nodel@aquaticinformatics.com>"
+  ],
+  "description": "A set of extension methods for lodash that can also be used as standalone package.",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "javascript",
+    "lodash",
+    "utility",
+    "extension",
+    "methods"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

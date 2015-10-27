@@ -1,8 +1,5 @@
-(function() {
-    'use strict';
-
-    module.exports = {
-        isDefined: require('./isDefined'),
-        valueOrDefault: require('./valueOrDefault')
-    };
-})();
+module.exports = {
+    isDefined: require('./isDefined'),
+    numberOrDefault: require('./numberOrDefault'),
+    valueOrDefault: require('./valueOrDefault')
+};
