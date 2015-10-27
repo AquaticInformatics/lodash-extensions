@@ -8,7 +8,7 @@
   "description": "A set of extension methods for lodash that can also be used as standalone package.",
   "main": "",
   "moduleType": [
-    "globals"
+    "node"
   ],
   "keywords": [
     "javascript",
@@ -24,7 +24,7 @@
     "bower_components",
     "test",
     "tests",
-    "./license_prefix.txt"
+    "./license_prefix.txt",
     "./*.md",
     "./gulpfile.js",
     "./configureLodash.js"
