@@ -1,6 +1,6 @@
 {
   "name": "ai-lodash-extensions",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/AquaticInformatics/lodash-extensions",
   "authors": [
     "Simon Nodel <simon.nodel@aquaticinformatics.com>"
@@ -26,7 +26,6 @@
     "tests",
     "license_prefix.txt",
     "README.md",
-    "gulpfile.js",
-    "configureLodash.js"
+    "gulpfile.js"
   ]
 }

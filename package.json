@@ -1,6 +1,6 @@
 {
   "name": "ai-lodash-extensions",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Extension utilities for lodash JavaScript library",
   "main": "source/lodashExtensions.js",
   "scripts": {
