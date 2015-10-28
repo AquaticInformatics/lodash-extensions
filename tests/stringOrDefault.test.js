@@ -8,7 +8,7 @@ describe('stringOrDefault', function() {
         var actual = stringOrDefault(undefined, expected);
 
         expect(actual).to.equal(expected);
-    });    
+    });
 
     it('should return default value if given null', function() {
         var expected = 'foobazblop';

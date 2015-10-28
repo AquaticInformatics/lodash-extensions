@@ -4,6 +4,8 @@ var lodashExtensions = require('../source/lodashExtensions');
 describe('lodashExtensions', function() {
     [
         'isDefined',
+        'isEmptyString',
+        'isNullOrUndefined',
         'numberOrDefault',
         'stringOrDefault',
         'valueOrDefault'
