@@ -5,6 +5,8 @@ describe('lodashExtensions', function() {
     [
         'isDefined',
         'isEmptyString',
+        'isNotEmptyString',
+        'isNotNullOrUndefined',
         'isNullOrUndefined',
         'numberOrDefault',
         'stringOrDefault',
