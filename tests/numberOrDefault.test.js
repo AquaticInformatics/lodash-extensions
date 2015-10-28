@@ -30,4 +30,11 @@ describe('numberOrDefault', function() {
 
         expect(actual).to.equal(expected);
     });
+
+    it('should return the result of executing a function if defaultValue is a function', function() {
+        var expected = 21;
+        var actual = numberOrDefault(null, function(a, b) {return a * b; }, 7, 3);
+
+        expect(actual).to.equal(expected);
+    });
 });

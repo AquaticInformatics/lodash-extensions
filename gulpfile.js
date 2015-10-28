@@ -7,7 +7,6 @@
         uglify = require('gulp-uglify'),
         del = require('del'),
         rename = require('gulp-rename'),
-        concat = require('gulp-concat'),
         browserify = require('browserify'),
         source = require('vinyl-source-stream'),
         header = require('gulp-header'),
