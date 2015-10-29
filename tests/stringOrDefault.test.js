@@ -1,34 +1,34 @@
 var expect = require('chai').expect;
-var valueOrDefault = require('../source/valueOrDefault');
+var stringOrDefault = require('../source/stringOrDefault');
 
-describe('valueOrDefault', () => {
+describe('stringOrDefault', () => {
     it('should return default value if given undefined', () => {
-        var expected = 'foobar';
+        var expected = 'foobarbaz';
 
-        var actual = valueOrDefault(undefined, expected);
+        var actual = stringOrDefault(undefined, expected);
 
         expect(actual).to.equal(expected);
     });
 
     it('should return default value if given null', () => {
-        var expected = 'foobaz';
+        var expected = 'foobazblop';
 
-        var actual = valueOrDefault(null, expected);
+        var actual = stringOrDefault(null, expected);
 
         expect(actual).to.equal(expected);
     });
 
     it('should return given value if it is not null or undefined', () => {
-        var expected = 'foobaz';
+        var expected = 'foobazbim';
 
-        var actual = valueOrDefault(expected);
+        var actual = stringOrDefault(expected);
 
         expect(actual).to.equal(expected);
     });
 
     it('should return the result of executing a function if defaultValue is a function', () => {
-        var expected = 4;
-        var actual = valueOrDefault(null, (a, b) => {return a - b; }, 7, 3);
+        var expected = 10;
+        var actual = stringOrDefault(null, (a, b) => {return a + b; }, 7, 3);
 
         expect(actual).to.equal(expected);
     });

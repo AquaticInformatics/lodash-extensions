@@ -1,15 +1,21 @@
 var expect = require('chai').expect;
 var lodashExtensions = require('../source/lodashExtensions');
 
-describe('lodashExtensions', function() {
+describe('lodashExtensions', () => {
     [
+        'hasValue',
         'isDefined',
-        'isFiniteNumber',
+        'isEmptyString',
+        'isNotEmptyString',
+        'isNotNullOrUndefined',
+        'isNullOrUndefined',
+        'isValueMissing',
         'numberOrDefault',
+        'stringOrDefault',
         'valueOrDefault'
-    ].forEach(function(propertyName) {
-        it('should contain ' + propertyName, function() {
-            expect(lodashExtensions[propertyName]).to.be.defined;
+    ].forEach(propertyName => {
+        it('should contain ' + propertyName, () => {
+            expect(lodashExtensions[propertyName]).to.exist;
         });
     });
 });

@@ -7,7 +7,6 @@
         uglify = require('gulp-uglify'),
         del = require('del'),
         rename = require('gulp-rename'),
-        concat = require('gulp-concat'),
         browserify = require('browserify'),
         source = require('vinyl-source-stream'),
         header = require('gulp-header'),
@@ -16,7 +15,6 @@
         coverageEnforcer = require('gulp-istanbul-enforcer'),
         stopOnUnitTestFailure = false,
         MAIN = './source/lodashExtensions.js',
-        LODASH_CONFIG = './configureLodash.js',
         SOURCE = 'source/*.js',
         TESTS = 'tests/*.js',
         DEST = './dist',
@@ -27,9 +25,9 @@
         UTF8 = 'utf8';
 
 
-    gulp.task('compile', ['browserify', 'run-mocha', 'configLodash']);
+    gulp.task('compile', ['browserify', 'run-mocha']);
 
-    gulp.task('run-mocha', function() {
+    gulp.task('run-mocha', () => {
         var reporters = ['html', 'text', 'text-summary', 'json'];
         return gulp.src([SOURCE])
             .pipe(istanbul({includeUntested: true}))
@@ -53,17 +51,12 @@
             });
     });
 
-    gulp.task('watch', function() {
+    gulp.task('watch', () => {
         stopOnUnitTestFailure = true;
         gulp.watch([SOURCE, TESTS], ['run-mocha']);
     });
 
-    gulp.task('configLodash', function() {
-        return gulp.src(LODASH_CONFIG)
-            .pipe(gulp.dest(DEST));
-    });
-
-    gulp.task('browserify', function() {
+    gulp.task('browserify', () => {
         return browserify(MAIN, {
                 standalone: STANDALONE
             })
@@ -72,14 +65,14 @@
             .pipe(gulp.dest(DEST));
     });
 
-    gulp.task('clean', function(deleteDone) {
+    gulp.task('clean', (deleteDone) => {
         del.sync([
             'dist'
         ]);
         deleteDone();
     });
 
-    gulp.task('build', ['compile', 'clean'], function() {
+    gulp.task('build', ['compile', 'clean'], () => {
         var licenseInfo = fs.readFileSync(LICENSE, UTF8);
         return gulp.src(DEST + '/' + SRC_COMPILED)
             .pipe(header(licenseInfo))
