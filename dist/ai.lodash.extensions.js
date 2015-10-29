@@ -133,19 +133,64 @@ function isString(value) {
 module.exports = isString;
 
 },{"../internal/isObjectLike":1}],5:[function(require,module,exports){
+var isNotNullOrUndefined = require('./isNotNullOrUndefined');
+var isNotEmptyString = require('./isNotEmptyString');
+
+module.exports = function(value) {
+    return isNotNullOrUndefined(value) && isNotEmptyString(value);
+};
+
+},{"./isNotEmptyString":8,"./isNotNullOrUndefined":9}],6:[function(require,module,exports){
 module.exports = function(value) {
     return typeof value !== 'undefined';
 };
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
+module.exports = function(value) {
+    return typeof value === 'string' && value.length === 0;
+};
+
+},{}],8:[function(require,module,exports){
+var isEmptyString = require('./isEmptyString');
+
+module.exports = function(value) {
+    return !isEmptyString(value);
+};
+
+},{"./isEmptyString":7}],9:[function(require,module,exports){
+var isNullOrUndefined = require('./isNullOrUndefined');
+
+module.exports = function(value) {
+    return !isNullOrUndefined(value);
+};
+
+},{"./isNullOrUndefined":10}],10:[function(require,module,exports){
+module.exports = function(value) {
+    return typeof value === 'undefined' || value === null;
+};
+
+},{}],11:[function(require,module,exports){
+var hasValue = require('./hasValue');
+
+module.exports = function(value) {
+    return !hasValue(value);
+};
+
+},{"./hasValue":5}],12:[function(require,module,exports){
 module.exports = {
+    hasValue: require('./hasValue'),
     isDefined: require('./isDefined'),
+    isEmptyString: require('./isEmptyString'),
+    isNotEmptyString: require('./isNotEmptyString'),
+    isNotNullOrUndefined: require('./isNotNullOrUndefined'),
+    isNullOrUndefined: require('./isNullOrUndefined'),
+    isValueMissing: require('./isValueMissing'),
     numberOrDefault: require('./numberOrDefault'),
     stringOrDefault: require('./stringOrDefault'),
     valueOrDefault: require('./valueOrDefault')
 };
 
-},{"./isDefined":5,"./numberOrDefault":7,"./stringOrDefault":8,"./valueOrDefault":9}],7:[function(require,module,exports){
+},{"./hasValue":5,"./isDefined":6,"./isEmptyString":7,"./isNotEmptyString":8,"./isNotNullOrUndefined":9,"./isNullOrUndefined":10,"./isValueMissing":11,"./numberOrDefault":13,"./stringOrDefault":14,"./valueOrDefault":15}],13:[function(require,module,exports){
 var isFunction = require('lodash/lang/isFunction');
 
 module.exports = function(value, defaultValue) {
@@ -158,7 +203,7 @@ module.exports = function(value, defaultValue) {
     return defaultValue;
 };
 
-},{"lodash/lang/isFunction":2}],8:[function(require,module,exports){
+},{"lodash/lang/isFunction":2}],14:[function(require,module,exports){
 var isString = require('lodash/lang/isString');
 var isFunction = require('lodash/lang/isFunction');
 
@@ -172,7 +217,7 @@ module.exports = function(value, defaultValue) {
     return defaultValue;
 };
 
-},{"lodash/lang/isFunction":2,"lodash/lang/isString":4}],9:[function(require,module,exports){
+},{"lodash/lang/isFunction":2,"lodash/lang/isString":4}],15:[function(require,module,exports){
 var isDefined = require('./isDefined');
 var isFunction = require('lodash/lang/isFunction');
 
@@ -186,5 +231,5 @@ module.exports = function(value, defaultValue) {
     return defaultValue;
 };
 
-},{"./isDefined":5,"lodash/lang/isFunction":2}]},{},[6])(6)
+},{"./isDefined":6,"lodash/lang/isFunction":2}]},{},[12])(12)
 });
