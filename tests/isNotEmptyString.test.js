@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 var isNotEmptyString = require('../source/isNotEmptyString');
 
-describe('isNotEmptyString', function() {
+describe('isNotEmptyString', () => {
     [
         undefined,
         null,
@@ -10,13 +10,13 @@ describe('isNotEmptyString', function() {
         'foobar',
         {},
         []
-    ].forEach(function(testValue) {
-        it('should return true if given ' + testValue, function() {
+    ].forEach(testValue => {
+        it('should return true if given ' + testValue, () => {
             expect(isNotEmptyString(testValue)).to.be.true;
         });
     });
 
-    it('should return false if given empty string', function() {
+    it('should return false if given empty string', () => {
         expect(isNotEmptyString('')).to.be.false;
     });
 });

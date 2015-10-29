@@ -27,7 +27,7 @@
 
     gulp.task('compile', ['browserify', 'run-mocha']);
 
-    gulp.task('run-mocha', function() {
+    gulp.task('run-mocha', () => {
         var reporters = ['html', 'text', 'text-summary', 'json'];
         return gulp.src([SOURCE])
             .pipe(istanbul({includeUntested: true}))
@@ -51,12 +51,12 @@
             });
     });
 
-    gulp.task('watch', function() {
+    gulp.task('watch', () => {
         stopOnUnitTestFailure = true;
         gulp.watch([SOURCE, TESTS], ['run-mocha']);
     });
 
-    gulp.task('browserify', function() {
+    gulp.task('browserify', () => {
         return browserify(MAIN, {
                 standalone: STANDALONE
             })
@@ -65,14 +65,14 @@
             .pipe(gulp.dest(DEST));
     });
 
-    gulp.task('clean', function(deleteDone) {
+    gulp.task('clean', (deleteDone) => {
         del.sync([
             'dist'
         ]);
         deleteDone();
     });
 
-    gulp.task('build', ['compile', 'clean'], function() {
+    gulp.task('build', ['compile', 'clean'], () => {
         var licenseInfo = fs.readFileSync(LICENSE, UTF8);
         return gulp.src(DEST + '/' + SRC_COMPILED)
             .pipe(header(licenseInfo))

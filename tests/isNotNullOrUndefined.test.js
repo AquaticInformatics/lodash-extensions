@@ -1,24 +1,24 @@
 var expect = require('chai').expect;
 var isNotNullOrUndefined = require('../source/isNotNullOrUndefined');
 
-describe('isNotNullOrUndefined', function() {
+describe('isNotNullOrUndefined', () => {
     [
         '',
         42,
         'foobar',
         {},
         []
-    ].forEach(function(testValue) {
-        it('should return true if given ' + testValue, function() {
+    ].forEach(testValue => {
+        it('should return true if given ' + testValue, () => {
             expect(isNotNullOrUndefined(testValue)).to.be.true;
         });
     });
 
-    it('should return false if given undefined', function() {
+    it('should return false if given undefined', () => {
         expect(isNotNullOrUndefined()).to.be.false;
     });
 
-    it('should return false if given null', function() {
+    it('should return false if given null', () => {
         expect(isNotNullOrUndefined(null)).to.be.false;
     });
 });

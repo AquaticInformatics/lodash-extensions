@@ -1,13 +1,13 @@
 var expect = require('chai').expect;
 var isValueMissing = require('../source/isValueMissing');
 
-describe('isValueMissing', function() {
+describe('isValueMissing', () => {
     [
         undefined,
         null,
         ''
-    ].forEach(function(testValue) {
-        it('should return true if given ' + testValue, function() {
+    ].forEach(testValue => {
+        it('should return true if given ' + testValue, () => {
             expect(isValueMissing(testValue)).to.be.true;
         });
     });
@@ -20,8 +20,8 @@ describe('isValueMissing', function() {
         {},
         [1],
         {foo:'bar'}
-    ].forEach(function(testValue) {
-        it('should return false if given ' + testValue, function() {
+    ].forEach(testValue => {
+        it('should return false if given ' + testValue, () => {
             expect(isValueMissing(testValue)).to.be.false;
         });
     });

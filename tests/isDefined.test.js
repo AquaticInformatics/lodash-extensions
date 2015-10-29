@@ -1,20 +1,20 @@
 var expect = require('chai').expect;
 var isDefined = require('../source/isDefined');
 
-describe('isDefined', function() {
+describe('isDefined', () => {
     [
         null,
         42,
         'foobar',
         {},
         []
-    ].forEach(function(testValue) {
-        it('should return false if given ' + testValue, function() {
+    ].forEach(testValue => {
+        it('should return false if given ' + testValue, () => {
             expect(isDefined(testValue)).to.be.true;
         });
     });
 
-    it('should return false if given undefined', function() {
+    it('should return false if given undefined', () => {
         expect(isDefined()).to.be.false;
     });
 });
