@@ -15,7 +15,6 @@
         coverageEnforcer = require('gulp-istanbul-enforcer'),
         stopOnUnitTestFailure = false,
         MAIN = './source/lodashExtensions.js',
-        LODASH_CONFIG = './configureLodash.js',
         SOURCE = 'source/*.js',
         TESTS = 'tests/*.js',
         DEST = './dist',
@@ -26,7 +25,7 @@
         UTF8 = 'utf8';
 
 
-    gulp.task('compile', ['browserify', 'run-mocha', 'configLodash']);
+    gulp.task('compile', ['browserify', 'run-mocha']);
 
     gulp.task('run-mocha', function() {
         var reporters = ['html', 'text', 'text-summary', 'json'];
@@ -55,11 +54,6 @@
     gulp.task('watch', function() {
         stopOnUnitTestFailure = true;
         gulp.watch([SOURCE, TESTS], ['run-mocha']);
-    });
-
-    gulp.task('configLodash', function() {
-        return gulp.src(LODASH_CONFIG)
-            .pipe(gulp.dest(DEST));
     });
 
     gulp.task('browserify', function() {
