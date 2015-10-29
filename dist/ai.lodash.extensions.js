@@ -218,11 +218,11 @@ module.exports = function(value, defaultValue) {
 };
 
 },{"lodash/lang/isFunction":2,"lodash/lang/isString":4}],15:[function(require,module,exports){
-var isDefined = require('./isDefined');
+var isNotNullOrUndefined = require('./isNotNullOrUndefined');
 var isFunction = require('lodash/lang/isFunction');
 
 module.exports = function(value, defaultValue) {
-    if (isDefined(value) && value !== null) {
+    if (isNotNullOrUndefined(value)) {
         return value;
     }
     if(isFunction(defaultValue)) {
@@ -231,5 +231,5 @@ module.exports = function(value, defaultValue) {
     return defaultValue;
 };
 
-},{"./isDefined":6,"lodash/lang/isFunction":2}]},{},[12])(12)
+},{"./isNotNullOrUndefined":9,"lodash/lang/isFunction":2}]},{},[12])(12)
 });
