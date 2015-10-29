@@ -3,11 +3,13 @@ var lodashExtensions = require('../source/lodashExtensions');
 
 describe('lodashExtensions', function() {
     [
+        'hasValue',
         'isDefined',
         'isEmptyString',
         'isNotEmptyString',
         'isNotNullOrUndefined',
         'isNullOrUndefined',
+        'isValueMissing',
         'numberOrDefault',
         'stringOrDefault',
         'valueOrDefault'
