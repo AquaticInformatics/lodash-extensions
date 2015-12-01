@@ -1,6 +1,6 @@
 var isNotNullOrUndefined = require('./isNotNullOrUndefined');
-var isNotEmptyString = require('./isNotEmptyString');
+var isEmptyString = require('./isEmptyString');
 
 module.exports = function(value) {
-    return isNotNullOrUndefined(value) && isNotEmptyString(value);
+    return isNotNullOrUndefined(value) && !isEmptyString(value);
 };
