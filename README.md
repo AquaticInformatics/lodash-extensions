@@ -21,7 +21,7 @@ To avoid subtle bugs associated with checking for truthy/falsy values we want to
     Example:
     var ai = require('lodashExtensions');
     var foo = ai.valueOrDefault(someVariable, () => { return 'foobar'; });
-    
+
 
 ## Documentation
 
@@ -31,9 +31,6 @@ Checks if value is not null and not undefined and not an empty string.  Useful f
 ### isDefined(value)
 Returns true if value is not undefined, false otherwise.
 
-### isEmptyString(value)
-Returns true if value is ''.  Note, it returns false for null and undefined.
-
 ### isNotEmptyString(value)
 Returns negation of ``` isEmptyString() ```.
 
@@ -42,6 +39,9 @@ Returns negation of ``` isNullOrUndefined() ```.
 
 ### isNullOrUndefined(value)
 Returns true if value is either null or undefined
+
+### isStringWithValue(value)
+Returns true if value is a string of non zero length.
 
 ### isValueMissing(value)
 returns negation of ``` hasValue() ```.

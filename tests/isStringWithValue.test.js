@@ -1,22 +1,22 @@
 var expect = require('chai').expect;
-var isNotEmptyString = require('../source/isNotEmptyString');
+var isStringWithValue = require('../source/isStringWithValue');
 
-describe('isNotEmptyString', () => {
+describe('isStringWithValue', () => {
     [
         undefined,
         null,
         NaN,
         42,
-        'foobar',
+        '',
         {},
         []
     ].forEach(testValue => {
         it('should return true if given ' + testValue, () => {
-            expect(isNotEmptyString(testValue)).to.be.true;
+            expect(isStringWithValue(testValue)).to.be.false;
         });
     });
 
     it('should return false if given empty string', () => {
-        expect(isNotEmptyString('')).to.be.false;
+        expect(isStringWithValue('0')).to.be.true;
     });
 });
