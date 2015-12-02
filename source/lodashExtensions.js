@@ -7,6 +7,7 @@ module.exports = {
     isStringWithValue: require('./isStringWithValue'),
     isValueMissing: require('./isValueMissing'),
     numberOrDefault: require('./numberOrDefault'),
+    propertyOrDefault: require('./propertyOrDefault'),
     stringOrDefault: require('./stringOrDefault'),
     valueOrDefault: require('./valueOrDefault')
 };

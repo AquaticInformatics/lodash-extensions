@@ -47,10 +47,14 @@ Returns true if value is a string of non zero length.
 returns negation of ``` hasValue() ```.
 
 ### numberOrDefault(value, defaultValue, ...)
-Returns value if value is a finite number (not NaN/Infinity/-Infinity) otherwise, if defaultValue is a function it will return the result of calling it with remainder of arguments or defaultValue.
+Returns value if value is a finite number (not NaN/Infinity/-Infinity) otherwise, it will return a default value unless, defaultValue is a function in which case, it will return the result of calling default value function with remainder of arguments.
+
+### propertyOrDefault(value, propertyPath, defaultValue, ...)
+Returns the value of the property if it not null or undefined otherwise, it will return a default value unless, defaultValue is a function in which case, it will return the result of calling default value function with remainder of arguments.
+Note: propertyPath format is 'dot.delimited.path'.
 
 ### stringOrDefault(value, defaultValue, ...)
-Returns value if value is a non empty string otherwise, if defaultValue is a function it will return the result of calling it with remainder of arguments or defaultValue.
+Returns value if value is a non empty string otherwise, it will return a default value unless, defaultValue is a function in which case, it will return the result of calling default value function with remainder of arguments.
 
 ### valueOrDefault(value, defaultValue, ...)
-Return value if value is not null or undefined otherwise, if defaultValue is a function it will return the result of calling it with remainder of arguments or defaultValue.
+Return value if value is not null or undefined otherwise, it will return a default value unless, defaultValue is a function in which case, it will return the result of calling default value function with remainder of arguments.
