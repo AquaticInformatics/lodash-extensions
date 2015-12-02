@@ -11,6 +11,7 @@ describe('lodashExtensions', () => {
         'isStringWithValue',
         'isValueMissing',
         'numberOrDefault',
+        'propertyOrDefault',
         'stringOrDefault',
         'valueOrDefault'
     ].forEach(propertyName => {
