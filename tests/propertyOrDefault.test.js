@@ -27,7 +27,7 @@ describe('propertyOrDefault', () => {
 
     it('should return the result of executing a function if defaultValue is a function', () => {
         var expected = 33;
-        var actual = propertyOrDefault({life:42}, 'missingProperty.path', (r) => {return r * 3; }, expected / 3);
+        var actual = propertyOrDefault({life:42}, 'missingProperty.path', () => expected);
 
         expect(actual).to.equal(expected);
     });

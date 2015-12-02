@@ -5,7 +5,7 @@ module.exports = function(value, defaultValue) {
         return value;
     }
     if(isFunction(defaultValue)) {
-        return defaultValue.apply(null, Array.prototype.slice.call(arguments, 2));
+        return defaultValue();
     }
     return defaultValue;
 };
