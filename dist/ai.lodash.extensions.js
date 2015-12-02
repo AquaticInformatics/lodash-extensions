@@ -459,7 +459,7 @@ module.exports = function(value, defaultValue) {
         return value;
     }
     if(isFunction(defaultValue)) {
-        return defaultValue.apply(null, Array.prototype.slice.call(arguments, 2));
+        return defaultValue();
     }
     return defaultValue;
 };
@@ -475,7 +475,7 @@ module.exports = function(source, path, defaultValue) {
         return value;
     }
     if(isFunction(defaultValue)) {
-        return defaultValue.apply(null, Array.prototype.slice.call(arguments, 3));
+        return defaultValue();
     }
     return defaultValue;
 };
@@ -488,8 +488,8 @@ module.exports = function(value, defaultValue) {
     if (isString(value) && value.length > 0) {
         return value;
     }
-    if(isFunction(defaultValue)) {        
-        return defaultValue.apply(null, Array.prototype.slice.call(arguments, 2));
+    if(isFunction(defaultValue)) {
+        return defaultValue();
     }
     return defaultValue;
 };
@@ -503,7 +503,7 @@ module.exports = function(value, defaultValue) {
         return value;
     }
     if(isFunction(defaultValue)) {
-        return defaultValue.apply(null, Array.prototype.slice.call(arguments, 2));
+        return defaultValue();
     }
     return defaultValue;
 };

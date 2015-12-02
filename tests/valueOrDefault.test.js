@@ -28,7 +28,7 @@ describe('valueOrDefault', () => {
 
     it('should return the result of executing a function if defaultValue is a function', () => {
         var expected = 4;
-        var actual = valueOrDefault(null, (a, b) => {return a - b; }, 7, 3);
+        var actual = valueOrDefault(null, () => expected);
 
         expect(actual).to.equal(expected);
     });

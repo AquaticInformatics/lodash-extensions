@@ -33,7 +33,7 @@ describe('numberOrDefault', () => {
 
     it('should return the result of executing a function if defaultValue is a function', () => {
         var expected = 21;
-        var actual = numberOrDefault(null, (a, b) => {return a * b; }, 7, 3);
+        var actual = numberOrDefault(null, () => expected);
 
         expect(actual).to.equal(expected);
     });

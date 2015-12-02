@@ -8,7 +8,7 @@ module.exports = function(source, path, defaultValue) {
         return value;
     }
     if(isFunction(defaultValue)) {
-        return defaultValue.apply(null, Array.prototype.slice.call(arguments, 3));
+        return defaultValue();
     }
     return defaultValue;
 };
