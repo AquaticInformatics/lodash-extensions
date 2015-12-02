@@ -1,7 +1,12 @@
 Changelog
 ==========
 
+### 0.3.0
+
+* [9](https://github.com/AquaticInformatics/lodash-extensions/issues/9) add propertyOrDefault method
+
 ### 0.2.1
+
 * Add changelog
 
 ### 0.2.0
