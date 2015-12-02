@@ -31,8 +31,8 @@ Checks if value is not null and not undefined and not an empty string.  Useful f
 ### isDefined(value)
 Returns true if value is not undefined, false otherwise.
 
-### isNotEmptyString(value)
-Returns negation of ``` isEmptyString() ```.
+### isEmptyString(value)
+Returns true if value is of type string and it is empty.
 
 ### isNotNullOrUndefined(value)
 Returns negation of ``` isNullOrUndefined() ```.
